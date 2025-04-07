@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Exclusive Hub | Juegos solo para PC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f1923;
+            --secondary: #1a2a3a;
+            --accent: #00adee;
+            --text: #ffffff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+        }
+        header {
+            background-color: var(--secondary);
+            padding: 1.5rem 5%;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+        .tagline {
+            margin-top: 0.5rem;
+            color: var(--text);
+            opacity: 0.8;
+            font-style: italic;
+        }
+        .games-container {
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        .game-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .game-card:hover {
+            transform: translateY(-10px);
+        }
+        .game-cover {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-bottom: 3px solid var(--accent);
+        }
+        .game-cover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .game-cover-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            text-align: center;
+            padding: 0 1rem;
+            word-break: break-word;
+        }
+        .game-info {
+            padding: 1.5rem;
+        }
+        .game-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+        }
+        .game-description {
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .exclusive-tag {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            .game-cover-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">PC EXCLUSIVE HUB</div>
+        <div class="tagline">Descubre títulos que solo existen en PC</div>
+    </header>
+
+    <main class="games-container">
+        <!-- Grid de Juegos -->
+        <div class="games-grid">
+            <!-- Juego 1 -->
+            <div class="game-card">
+                <div class="game-cover" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
+                    <div class="game-cover-text">Baldur's Gate 3</div>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Baldur's Gate 3</h3>
+                    <p class="game-description">RPG épico de Larian Studios con combate por turnos, cooperativo online y mods personalizados. Solo en PC.</p>
+                    <div class="game-meta">
+                        <span>RPG • 2023</span>
+                        <span class="exclusive-tag">Exclusivo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Juego 2 -->
+            <div class="game-card">
+                <div class="game-cover" style="background: linear-gradient(135deg, #870000, #190a05);">
+                    <div class="game-cover-text">Counter-Strike 2</div>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Counter-Strike 2</h3>
+                    <p class="game-description">El shooter táctico por excelencia, con servidores dedicados y precisión de teclado/ratón.</p>
+                    <div class="game-meta">
+                        <span>FPS • 2023</span>
+                        <span class="exclusive-tag">Exclusivo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Juego 3 -->
+            <div class="game-card">
+                <div class="game-cover" style="background: linear-gradient(135deg, #0f2027, #203a43);">
+                    <div class="game-cover-text">Dota 2</div>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Dota 2</h3>
+                    <p class="game-description">MOBA competitivo con actualizaciones constantes y una de las escenas eSports más grandes.</p>
+                    <div class="game-meta">
+                        <span>MOBA • 2013</span>
+                        <span class="exclusive-tag">Exclusivo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Juego 4 -->
+            <div class="game-card">
+                <div class="game-cover" style="background: linear-gradient(135deg, #283048, #859398);">
+                    <div class="game-cover-text">StarCraft II</div>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">StarCraft II</h3>
+                    <p class="game-description">El RTS definitivo, con mecánicas de microgestión imposibles en consolas.</p>
+                    <div class="game-meta">
+                        <span>Estrategia • 2010</span>
+                        <span class="exclusive-tag">Exclusivo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Juego 5 -->
+            <div class="game-card">
+                <div class="game-cover" style="background: linear-gradient(135deg, #556270, #4ecdc4);">
+                    <div class="game-cover-text">Valheim</div>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Valheim</h3>
+                    <p class="game-description">Supervivencia nórdica con construcción, exploración y cooperativo para hasta 10 jugadores.</p>
+                    <div class="game-meta">
+                        <span>Supervivencia • 2021</span>
+                        <span class="exclusive-tag">Exclusivo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Juego 6 -->
+            <div class="game-card">
+                <div class="game-cover" style="background: linear-gradient(135deg, #614385, #516395);">
+                    <div class="game-cover-text">Total War: Warhammer III</div>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Total War: Warhammer III</h3>
+                    <p class="game-description">Estrategia por turnos y batallas en tiempo real con miles de unidades en pantalla.</p>
+                    <div class="game-meta">
+                        <span>Estrategia • 2022</span>
+                        <span class="exclusive-tag">Exclusivo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
