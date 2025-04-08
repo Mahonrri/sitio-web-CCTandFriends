@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Videojuegos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">GameStore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Xbox</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#playstation">PlayStation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index_switch.html">Nintendo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pc.html">PC</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="bg-primary text-white text-center py-5">
+        <h1>Bienvenido a GameStore</h1>
+        <p>Encuentra los mejores juegos para tu consola favorita</p>
+    </header>
+    
+    <div class="container my-5">
+        <section id="xbox" class="mb-5">
+            <h2 class="text-center">Juegos de Xbox</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="xbox-game.jpg" class="card-img-top" alt="Juego de Xbox">
+                        <div class="card-body">
+                            <h5 class="card-title">Halo Infinite</h5>
+                            <p class="card-text">Un shooter épico para Xbox.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="playstation" class="mb-5">
+            <h2 class="text-center">Juegos de PlayStation</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="ps-game.jpg" class="card-img-top" alt="Juego de PlayStation">
+                        <div class="card-body">
+                            <h5 class="card-title">God of War: Ragnarok</h5>
+                            <p class="card-text">Aventura épica en la mitología nórdica.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="nintendo" class="mb-5">
+            <h2 class="text-center">Juegos de Nintendo Switch</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="nintendo-game.jpg" class="card-img-top" alt="Juego de Nintendo">
+                        <div class="card-body">
+                            <h5 class="card-title">The Legend of Zelda: Breath of the Wild</h5>
+                            <p class="card-text">Explora Hyrule en esta increíble aventura.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 GameStore - Todos los derechos reservados.</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
