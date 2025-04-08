@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xbox Login</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hidden { display: none; }
+    .profile {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1rem;
+      padding: 10px;
+    }
+    .profile span {
+      font-weight: bold;
+    }
+    .profile button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .game img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+    .game {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login/Register Form -->
+  <div class="auth-container" id="auth-container">
+    <h2 id="form-title">Iniciar Sesión</h2>
+    <input type="text" id="username" placeholder="Usuario" />
+    <input type="password" id="password" placeholder="Contraseña" />
+    <button onclick="handleAuth()" id="auth-button">Entrar</button>
+    <p id="auth-error" class="error"></p>
+    <p class="switch-mode">
+      ¿No tienes cuenta? <span onclick="toggleMode()">Regístrate</span>
+    </p>
+  </div>
+
+  <!-- Interfaz de Juegos -->
+  <div class="container hidden" id="main-container">
+    <header class="header">
+      <h1>Xbox Games</h1>
+      <div class="profile">
+        <span id="user-profile">Usuario</span>
+        <button onclick="logout()">Cerrar Sesión</button>
+      </div>
+    </header>
+
+    <!-- Sección de juegos restaurada -->
+    <section class="games">
+      <div class="game"><a href="https://www.halowaypoint.com/" target="_blank"><img src="game1.jpg" alt="Halo Infinite"></a><p>Halo Infinite</p></div>
+      <div class="game"><a href="https://forza.net/" target="_blank"><img src="game2.jpg" alt="Forza Horizon"></a><p>Forza Horizon</p></div>
+      <div class="game"><a href="https://www.gears5.com/" target="_blank"><img src="game3.jpg" alt="Gears 5"></a><p>Gears 5</p></div>
+      <div class="game"><a href="https://www.seaofthieves.com/" target="_blank"><img src="game4.jpg" alt="Sea of Thieves"></a><p>Sea of Thieves</p></div>
+      <div class="game"><a href="https://www.minecraft.net/" target="_blank"><img src="game5.jpg" alt="Minecraft"></a><p>Minecraft</p></div>
+      <div class="game"><a href="https://www.callofduty.com/" target="_blank"><img src="game6.jpg" alt="Call of Duty"></a><p>Call of Duty</p></div>
+      <div class="game"><a href="https://www.fortnite.com/" target="_blank"><img src="game7.jpg" alt="Fortnite"></a><p>Fortnite</p></div>
+      <div class="game"><a href="https://www.ubisoft.com/game/assassins-creed/valhalla" target="_blank"><img src="game8.jpg" alt="Assassin's Creed Valhalla"></a><p>Assassin's Creed Valhalla</p></div>
+      <div class="game"><a href="https://www.rockstargames.com/reddeadredemption2" target="_blank"><img src="game9.jpg" alt="Red Dead Redemption 2"></a><p>Red Dead Redemption 2</p></div>
+      <div class="game"><a href="https://www.rockstargames.com/gta-v" target="_blank"><img src="game10.jpg" alt="GTA V"></a><p>GTA V</p></div>
+      <div class="game"><a href="https://store.steampowered.com/app/379720/DOOM/" target="_blank"><img src="game11.jpg" alt="DOOM"></a><p>DOOM</p></div>
+      <div class="game"><a href="https://www.residentevil.com/village/" target="_blank"><img src="game12.jpg" alt="Resident Evil Village"></a><p>Resident Evil Village</p></div>
+      <div class="game"><a href="https://www.cyberpunk.net/" target="_blank"><img src="game13.jpg" alt="Cyberpunk 2077"></a><p>Cyberpunk 2077</p></div>
+      <div class="game"><a href="https://www.eldenring.com/" target="_blank"><img src="game14.jpg" alt="Elden Ring"></a><p>Elden Ring</p></div>
+      <div class="game"><a href="https://www.nintendo.com/store/products/the-legend-of-zelda-breath-of-the-wild-switch/" target="_blank"><img src="game15.jpg" alt="Zelda: Breath of the Wild"></a><p>Zelda: Breath of the Wild</p></div>
+      <div class="game"><a href="https://overwatch.blizzard.com/" target="_blank"><img src="game16.jpg" alt="Overwatch 2"></a><p>Overwatch 2</p></div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 Xbox Games</p>
+    </footer>
+  </div>
+
+  <script>
+    let isRegisterMode = false;
+    let currentUser = null;
+
+    function toggleMode() {
+      isRegisterMode = !isRegisterMode;
+      document.getElementById("form-title").textContent = isRegisterMode ? "Registro de Usuario" : "Iniciar Sesión";
+      document.getElementById("auth-button").textContent = isRegisterMode ? "Registrar" : "Entrar";
+      document.querySelector(".switch-mode").innerHTML = isRegisterMode 
+        ? '¿Ya tienes cuenta? <span onclick="toggleMode()">Inicia Sesión</span>'
+        : '¿No tienes cuenta? <span onclick="toggleMode()">Regístrate</span>';
+      document.getElementById("auth-error").textContent = "";
+    }
+
+    function handleAuth() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      const error = document.getElementById("auth-error");
+
+      if (!user || !pass) {
+        error.textContent = "Por favor, llena todos los campos.";
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+      if (isRegisterMode) {
+        const exists = users.find(u => u.username === user);
+        if (exists) {
+          error.textContent = "El usuario ya existe.";
+        } else {
+          users.push({ username: user, password: pass });
+          localStorage.setItem("users", JSON.stringify(users));
+          error.style.color = "lightgreen";
+          error.textContent = "¡Registro exitoso! Ahora puedes iniciar sesión.";
+          toggleMode();
+        }
+      } else {
+        const found = users.find(u => u.username === user && u.password === pass);
+        if (found) {
+          currentUser = user;
+          document.getElementById("user-profile").textContent = `Hola, ${currentUser}`;
+          document.getElementById("auth-container").classList.add("hidden");
+          document.getElementById("main-container").classList.remove("hidden");
+        } else {
+          error.textContent = "Usuario o contraseña incorrectos.";
+        }
+      }
+    }
+
+    function logout() {
+      currentUser = null;
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("auth-error").textContent = "";
+      document.getElementById("auth-container").classList.remove("hidden");
+      document.getElementById("main-container").classList.add("hidden");
+    }
+  </script>
+</body>
+</html>
