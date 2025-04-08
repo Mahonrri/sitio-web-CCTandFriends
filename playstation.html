@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juegos de PlayStation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0070d1;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+    }
+    .game-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .game {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    .game img {
+      width: 100%;
+      height: auto;
+    }
+    .game h2 {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Catálogo de Juegos de PlayStation</h1>
+  </header>
+  <main class="game-list">
+    <div class="game">
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Spider-Man_Miles_Morales_cover.jpg" alt="Spider-Man: Miles Morales">
+      <h2>Spider-Man: Miles Morales</h2>
+    </div>
+    <div class="game">
+      <img src="https://upload.wikimedia.org/wikipedia/en/e/e0/Demon%27s_Souls_Remake.jpg" alt="Demon's Souls">
+      <h2>Demon's Souls</h2>
+    </div>
+    <div class="game">
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/9d/God_of_War_Ragnar%C3%B6k_cover.jpg" alt="God of War: Ragnarök">
+      <h2>God of War: Ragnarök</h2>
+    </div>
+    <div class="game">
+      <img src="https://upload.wikimedia.org/wikipedia/en/2/2f/Final_Fantasy_XVI_cover_art.jpg" alt="Final Fantasy XVI">
+      <h2>Final Fantasy XVI</h2>
+    </div>
+  </main>
+</body>
+</html>
